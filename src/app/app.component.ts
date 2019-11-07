@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {OddComponent} from './odd/odd.component';
+import {EvenComponent} from './even/even.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Ass1';
+  oddNumbers = [];
+  evenNumbers = [];
+
+  onIntervalFired(incrementNumber: number) {
+    console.log(incrementNumber);
+  }
+
+  onNumberAdded(incrementNumber: number) {
+    if (incrementNumber % 2 !== 0) {
+      this.oddNumbers.push({
+        number: incrementNumber
+      });
+    } else {
+      this.evenNumbers.push({
+        number: incrementNumber
+      });
+    }
+  }
 }
+
